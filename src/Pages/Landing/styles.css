@@ -1,26 +1,24 @@
 .landing-page {
-    margin: auto;
+    flex: 1;
     height: 100%;
-
-    background: linear-gradient(0deg, rgba(255, 0, 0, 0.3), rgba(255, 0, 150, 0.3)), url(./tired-asian-business-woman-stress.webp);
+    background: linear-gradient(0deg, rgba(255, 0, 0, 0.3), rgba(255, 0, 150, 0.3)), url(../../assets/images/tired-asian-business-woman-stress.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
     display: flex;
     align-items: center;
-}
-
-.landing-page .info {
-    font-size: 24px;
-}
-
-.landing-page .details {
+    justify-content: center;
+  }
+  
+  
+  .landing-page .details {
     display: flex;
     flex-direction: row;
     align-items: center;
-
     background: rgba(0, 0, 0, 0.6);
-
     padding: 10px;
-}
+  }
+  
+  .landing-page p {
+    font-size: 26px;
+  }
