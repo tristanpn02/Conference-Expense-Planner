@@ -1,0 +1,32 @@
+.venue-block {
+    position: relative;
+    padding: 20px;
+    margin: 10px;
+    flex: 1 1 250px;
+    border-radius: 8px;
+    text-align: center;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.venue-block:hover {
+    transform: scale(1.05);
+}
+
+.venue-block h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.venue-block p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+}
+
+.venue-block .details {
+    background-color: rgba(0, 0, 0, 0.7);
+}

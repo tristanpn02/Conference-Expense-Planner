@@ -3,6 +3,9 @@ import auditoriumImage from '../../assets/images/venues/auditorium.jpg';
 import presentationImage from '../../assets/images/venues/presentation.jpg';
 import largeMeetingImage from '../../assets/images/venues/large-meeting.jpg';
 import smallMeetingImage from '../../assets/images/venues/small-meeting.jpg';
+import VenueBlock from '../../Components/VenueBlock';
+
+import './styles.css';
 
 const VenuePage = () => {
     const venues = [
@@ -18,11 +21,7 @@ const VenuePage = () => {
             <h1>Venue Room Selection</h1>
             <div className="venue-list">
                 {venues.map(venue => (
-                    <div className="venue-block">
-                        <img src={venue.img} alt="" />
-                        <h2>{venue.name}</h2>
-                        <p>{venue.price}</p>
-                    </div>
+                    <VenueBlock venue={venue} />
                 ))}
             </div>
         </div>

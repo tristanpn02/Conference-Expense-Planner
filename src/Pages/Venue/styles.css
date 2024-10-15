@@ -1,0 +1,10 @@
+.venue-page {
+    padding: 10px;
+    text-align: center;
+}
+
+.venue-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
