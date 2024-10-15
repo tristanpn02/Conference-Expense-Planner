@@ -1,8 +1,26 @@
 .landing-page {
     margin: auto;
     height: 100%;
+
     background: linear-gradient(0deg, rgba(255, 0, 0, 0.3), rgba(255, 0, 150, 0.3)), url(./tired-asian-business-woman-stress.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    display: flex;
+    align-items: center;
+}
+
+.landing-page .info {
+    font-size: 24px;
+}
+
+.landing-page .details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    padding: 10px;
 }
