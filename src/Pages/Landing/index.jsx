@@ -1,5 +1,7 @@
 import './styles.css';
 
+import { Link } from 'react-router-dom';
+
 const LandingPage = () => {
 
     return (
@@ -9,7 +11,9 @@ const LandingPage = () => {
                     <h1>Conference Expense Planner</h1>
                     <p>Welcome to Spilum.Net's Conference Expense Planner. With this tool you can do business things =)</p>
                     <br />
-                    <button>Get Started</button>
+                    <Link to="/venue">
+                     <button>Get Started</button>
+                    </Link>
                 </div>
             </div>
         </div>
