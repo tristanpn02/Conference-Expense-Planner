@@ -10,6 +10,8 @@ import { useSelector } from 'react-redux';
 
 const PlannerPage = () => {
     const cartItems = useSelector(state => state.cart);
+    
+    const venuesTotalAmount = cartItems.venues.reduce((total, item) => total + item.price * item.quantity, 0);
 
     const venues = [
         { id: 1, name: 'Conference Room', capacity: 15, price: 1500, img: conferenceImage},
@@ -27,9 +29,7 @@ const PlannerPage = () => {
                     <ItemBlock key={venue.id} item={venue} category="venues" />
                 ))}
             </div>
-            {cartItems.venues.map(venue => (
-                <p key={venue.id}>{venue.name}</p>
-            ))}
+            <p>Total: ${venuesTotalAmount}</p>
         </div>
     )
 }
