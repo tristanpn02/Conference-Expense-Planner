@@ -1,27 +1,29 @@
 :root {
-
+  /* Define CSS variables here if needed */
 }
 
 html, body, #root {
   height: 100%;
+  margin: 0;
 }
 
 body {
-  display: block !important;
-  margin: 0;
+  display: block;
 }
 
 #root {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .Main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
   overflow: auto;
 }
 
 h1, h2, p {
-  margin-block: 0;
+  margin: 0;
 }
-
