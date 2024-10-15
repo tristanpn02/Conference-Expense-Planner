@@ -1,17 +1,21 @@
-import { useState } from 'react'
 import './App.css'
-import LandingPage from './Pages/Landing'
+import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+
+import routesConfig from './routesConfig';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
+    <Router>
       <div className='Main'>
-        <LandingPage />
+        <Routes>
+          <Route path='/' element={<Navigate to="/home" />} />
+          {routesConfig.map((route, index) => (
+            <Route key={index} path={route.path} element={route.component} />
+          ))}
+        </Routes>
       </div>
-    </>
-  )
+    </Router>
+  );
 }
 
 export default App
