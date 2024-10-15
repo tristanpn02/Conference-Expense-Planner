@@ -1,0 +1,26 @@
+.header {
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    background: rgb(27, 27, 27);
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline;
+    margin: 0 15px;
+    font-size: larger;
+  }
+  
+  nav a {
+    text-decoration: none;
+  }
+  
+  nav a.active {
+    font-weight: bold;
+    color: #4A90E2;
+  }

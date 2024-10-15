@@ -2,10 +2,12 @@ import './App.css'
 import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 import routesConfig from './routesConfig';
+import Header from './Components/Header';
 
 function App() {
   return (
     <Router>
+      <Header routes={routesConfig} />
       <div className='Main'>
         <Routes>
           <Route path='/' element={<Navigate to="/home" />} />
