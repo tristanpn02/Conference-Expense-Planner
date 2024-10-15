@@ -9,7 +9,7 @@
     "deploy": "gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite build; vite preview --host"
+    "preview": "vite build && vite preview --host"
   },
   "dependencies": {
     "react": "^18.3.1",
