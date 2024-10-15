@@ -1,9 +1,9 @@
-.venue-page {
+.planner-page {
     padding: 10px;
     text-align: center;
 }
 
-.venue-list {
+.planner-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

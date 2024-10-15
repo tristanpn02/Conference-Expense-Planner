@@ -1,10 +1,10 @@
 import React from "react";
 import LandingPage from "./Pages/Landing";
-import VenuePage from "./Pages/Venue";
+import PlannerPage from "./Pages/Planner";
 
 const routesConfig = [
     { path: '/home', title: 'Home', component: <LandingPage />, navbar: true },
-    { path: '/venue', title: 'Venue', component: <VenuePage />, navbar: true},
+    { path: '/planner', title: 'Planner', component: <PlannerPage />, navbar: true},
 ];
 
 export default routesConfig;

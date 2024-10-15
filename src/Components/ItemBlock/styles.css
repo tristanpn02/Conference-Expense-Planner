@@ -1,4 +1,4 @@
-.venue-block {
+.item-block {
     position: relative;
     padding: 20px;
     margin: 10px;
@@ -14,22 +14,22 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
 }
 
-.venue-block:hover {
+.item-block:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
-.venue-block h2 {
+.item-block h2 {
     margin: 0;
     font-size: 1.7rem;
 }
 
-.venue-block p {
+.item-block p {
     margin: 5px 0 0;
     font-size: 1rem;
 }
 
-.venue-block .details {
+.item-block .details {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -39,6 +39,6 @@
     transition: background-color 0.3s;
 }
 
-.venue-block:hover .details {
+.item-block:hover .details {
     background-color: rgba(0, 0, 0, 0.8);
 }
