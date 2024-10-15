@@ -6,62 +6,52 @@ const initialState = {
     meals: [],
 };
 
-// Reusable utility functions for cart
-const cartUtils = {
-    addItemToCart(state, category, payload) {
-        const existingItem = state[category].find(item => item.id === payload.id);
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            state[category].push({ ...payload, quantity: 1 });
-        }
-    },
-
-    removeItemFromCart(state, category, id) {
-        state[category] = state[category].filter(item => item.id !== id);
-    },
-
-    clearItemsFromCart(state, category) {
-        state[category] = [];
-    },
-
-    increaseItemQuantity(state, category, id) {
-        const itemToIncrease = state[category].find(item => item.id === id);
-        if (itemToIncrease) {
-            itemToIncrease.quantity += 1;
-        }
-    },
-
-    decreaseItemQuantity(state, category, id) {
-        const itemToDecrease = state[category].find(item => item.id === id);
-        if (itemToDecrease && itemToDecrease.quantity > 1) {
-            itemToDecrease.quantity -= 1;
-        }
-    }
-};
+// Helper to find an item by ID
+const findItemById = (items, id) => items.find(item => item.id === id);
 
 const CartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
         addItem(state, action) {
-            cartUtils.addItemToCart(state, action.payload.category, action.payload.item);
+            const { category, item } = action.payload;
+            const existingItem = findItemById(state[category], item.id);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                state[category].push({ ...item, quantity: 1 });
+            }
         },
 
         removeItem(state, action) {
-            cartUtils.removeItemFromCart(state, action.payload.category, action.payload.id);
+            const { category, id } = action.payload;
+            state[category] = state[category].filter(item => item.id !== id);
         },
 
         clearItems(state, action) {
-            cartUtils.clearItemsFromCart(state, action.payload.category);
+            const { category } = action.payload;
+            state[category] = [];
         },
 
         increaseItemQuantity(state, action) {
-            cartUtils.increaseItemQuantity(state, action.payload.category, action.payload.id);
+            const { category, id } = action.payload;
+            const item = findItemById(state[category], id);
+            if (item) {
+                item.quantity += 1;
+            }
         },
 
         decreaseItemQuantity(state, action) {
-            cartUtils.decreaseItemQuantity(state, action.payload.category, action.payload.id);
+            const { category, id } = action.payload;
+            const item = findItemById(state[category], id);
+            if (item) {
+                if (item.quantity > 1) {
+                    item.quantity -= 1;
+                } else {
+                    state[category] = state[category].filter(i => i.id !== id);
+                }
+            }
         }
     }
 });

@@ -6,8 +6,11 @@ import smallMeetingImage from '../../assets/images/venues/small-meeting.jpg';
 import ItemBlock from '../../Components/ItemBlock';
 
 import './styles.css';
+import { useSelector } from 'react-redux';
 
 const PlannerPage = () => {
+    const cartItems = useSelector(state => state.cart);
+
     const venues = [
         { id: 1, name: 'Conference Room', capacity: 15, price: 1500, img: conferenceImage},
         { id: 2, name: 'Auditorium Hall', capacity: 200, price: 5500, img: auditoriumImage},
@@ -21,9 +24,12 @@ const PlannerPage = () => {
             <h1>Venue Room Selection</h1>
             <div className="planner-list">
                 {venues.map(venue => (
-                    <ItemBlock item={venue} />
+                    <ItemBlock key={venue.id} item={venue} category="venues" />
                 ))}
             </div>
+            {cartItems.venues.map(venue => (
+                <p key={venue.id}>{venue.name}</p>
+            ))}
         </div>
     )
 }
