@@ -7,4 +7,21 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 10px;
+}
+
+.planner-page .total {
+    background-color: firebrick;
+    border-radius: 8px;
+    padding: 8px 16px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.planner-page h1 {
+    background-color: firebrick;
+}
+
+.addons, .meals {
+    margin-top: 20px;
 }
