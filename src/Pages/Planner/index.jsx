@@ -81,14 +81,15 @@ const PlannerPage = () => {
 
             <div className={styles.selection}>
                 <h1>Meals Selection</h1>
-                <p>Number of people:
+                <h2>Number of people: 
                     <input
                         type="number"
                         value={mealsPeopleAmount}
                         onChange={(e) => setMealsPeopleAmount(Number(e.target.value))}
                         min="0"
+                        className={styles.numberInput}
                     />
-                </p>
+                </h2>
                 <div className={styles.list}>
                     {meals.map(meal => (
                         <ItemBlock
