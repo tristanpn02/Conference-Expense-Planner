@@ -1,19 +1,6 @@
-import conferenceImage from '../../assets/images/venues/conference.jpg';
-import auditoriumImage from '../../assets/images/venues/auditorium.jpg';
-import presentationImage from '../../assets/images/venues/presentation.jpg';
-import largeMeetingImage from '../../assets/images/venues/large-meeting.jpg';
-import smallMeetingImage from '../../assets/images/venues/small-meeting.jpg';
+import { getCategorizedImages } from '../../utils/imageLoader';
 
-import projectorImage from '../../assets/images/addons/projector.jpg';
-import speakerImage from '../../assets/images/addons/speaker.png';
-import microphoneImage from '../../assets/images/addons/microphone.jpg';
-import whiteboardImage from '../../assets/images/addons/whiteboard.jpg';
-import signageImage from '../../assets/images/addons/signage.jpg';
-
-import breakfastImage from '../../assets/images/meals/breakfast.jpg';
-import highteaImage from '../../assets/images/meals/hightea.jpg';
-import lunchImage from '../../assets/images/meals/lunch.jpg';
-import dinnerImage from '../../assets/images/meals/dinner.jpg';
+const categorizedImages = getCategorizedImages();
 
 import ItemBlock from '../../components/ItemBlock';
 
@@ -32,26 +19,26 @@ const PlannerPage = () => {
     const [mealsPeopleAmount, setMealsPeopleAmount] = useState(0);
 
     const venues = [
-        { id: 1, name: 'Conference Room', capacity: 15, price: 1500, img: conferenceImage },
-        { id: 2, name: 'Auditorium Hall', capacity: 200, price: 5500, img: auditoriumImage },
-        { id: 3, name: 'Presentation Room', capacity: 50, price: 3500, img: presentationImage },
-        { id: 4, name: 'Large Meeting Room', capacity: 10, price: 1000, img: largeMeetingImage },
-        { id: 5, name: 'Small Meeting Room', capacity: 5, price: 800, img: smallMeetingImage },
+        { id: 1, name: 'Conference Room', capacity: 15, price: 1500, img: categorizedImages.venues['conference.jpg'] },
+        { id: 2, name: 'Auditorium Hall', capacity: 200, price: 5500, img: categorizedImages.venues['auditorium.jpg'] },
+        { id: 3, name: 'Presentation Room', capacity: 50, price: 3500, img: categorizedImages.venues['presentation.jpg'] },
+        { id: 4, name: 'Large Meeting Room', capacity: 10, price: 1000, img: categorizedImages.venues['largeMeeting.jpg'] },
+        { id: 5, name: 'Small Meeting Room', capacity: 5, price: 800, img: categorizedImages.venues['smallMeeting.jpg'] },
     ];
 
     const addons = [
-        { id: 1, name: 'Projectors', price: 200, img: projectorImage },
-        { id: 2, name: 'Speaker', price: 35, img: speakerImage },
-        { id: 3, name: 'Microphone', price: 45, img: microphoneImage },
-        { id: 4, name: 'Whiteboard', price: 80, img: whiteboardImage },
-        { id: 5, name: 'Signage', price: 80, img: signageImage },
+        { id: 1, name: 'Projectors', price: 200, img: categorizedImages.addons['projector.jpg'] },
+        { id: 2, name: 'Speaker', price: 35, img: categorizedImages.addons['speaker.jpg'] },
+        { id: 3, name: 'Microphone', price: 45, img: categorizedImages.addons['microphone.jpg'] },
+        { id: 4, name: 'Whiteboard', price: 80, img: categorizedImages.addons['whiteboard.jpg'] },
+        { id: 5, name: 'Signage', price: 80, img: categorizedImages.addons['signage.jpg'] },
     ];
 
     const meals = [
-        { id: 1, name: 'Breakfast', price: 50, img: breakfastImage },
-        { id: 2, name: 'High Tea', price: 25, img: highteaImage },
-        { id: 3, name: 'Lunch', price: 65, img: lunchImage },
-        { id: 4, name: 'Dinner', price: 70, img: dinnerImage },
+        { id: 1, name: 'Breakfast', price: 50, img: categorizedImages.meals['breakfast.jpg'] },
+        { id: 2, name: 'High Tea', price: 25, img: categorizedImages.meals['highTea.jpg'] },
+        { id: 3, name: 'Lunch', price: 65, img: categorizedImages.meals['lunch.jpg'] },
+        { id: 4, name: 'Dinner', price: 70, img: categorizedImages.meals['dinner.jpg'] },
     ];
 
     const mealsTotalAmount = cartItems.meals.reduce((total, meal) => {
