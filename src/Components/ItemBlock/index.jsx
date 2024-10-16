@@ -26,11 +26,11 @@ const ItemBlock = ({item, category}) => {
                 <h2>{item.name}</h2>
                 <p>Capacity: {item.capacity}</p>
                 <p>Price: ${item.price}</p>
-            </div>
-            <div className="quantity-controls">
-                <button onClick={handleDecreaseQuantity} className="quantity-btn">-</button>
-                <span className="quantity-display">{currentQuantity}</span>
-                <button onClick={handleIncreaseQuantity} className="quantity-btn">+</button>
+                <div className="quantity-controls">
+                    <button onClick={handleDecreaseQuantity} className="quantity-btn">-</button>
+                    <span className="quantity-display">{currentQuantity}</span>
+                    <button onClick={handleIncreaseQuantity} className="quantity-btn">+</button>
+                </div>
             </div>
         </div>
     );
