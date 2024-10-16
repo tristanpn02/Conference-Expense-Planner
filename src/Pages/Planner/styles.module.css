@@ -1,28 +1,28 @@
-.planner-page {
+.page h1 {
+    background-color: rgb(255, 0, 55);
+}
+
+.page {
     padding: 10px;
     text-align: center;
     background: rgb(58, 2, 39);
 }
 
-.planner-list {
+.selection {
+    margin-top: 20px;
+}
+
+.list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 }
 
-.planner-page .total {
+.total {
     background-color: rgb(255, 0, 55);
     border-radius: 8px;
     padding: 8px 16px;
     display: inline-block;
     margin-top: 10px;
-}
-
-.planner-page h1 {
-    background-color: rgb(255, 0, 55);
-}
-
-.addons, .meals {
-    margin-top: 20px;
 }

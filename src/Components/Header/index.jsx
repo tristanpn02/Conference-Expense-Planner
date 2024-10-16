@@ -1,14 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 
-import './styles.css';
+import styles from './styles.module.css'
 
 const Header = ({ routes }) => {
     return (
-        <div className="header">
+        <div className={styles.header}>
             <Link to="/">
                 <h1>Conference Expense Planner</h1>
             </Link>
-            <nav>
+            <nav className={styles.navBar}>
                 <ul>
                     {routes.map((route, index) => ( !route.navbar ? '' :
                         <li>

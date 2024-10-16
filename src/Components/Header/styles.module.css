@@ -1,0 +1,49 @@
+.header {
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgb(199, 0, 66)
+}
+
+.header a {
+  color: white;
+  transition: color 0.3 ease;
+}
+
+.header a:hover {
+  color: #ffd54f;
+}
+
+.header h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.navBar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navBar li {
+  margin: 0 20px;
+  font-size: 20px;
+}
+
+.navBar a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.3 ease;
+}
+
+.navBar a.active {
+  font-weight: bold;
+  color: plum;
+}
+
+.navBar a:hover {
+  color: #ffd54f;
+}

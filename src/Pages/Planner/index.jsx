@@ -15,12 +15,12 @@ import highteaImage from '../../assets/images/meals/hightea.jpg';
 import lunchImage from '../../assets/images/meals/lunch.jpg';
 import dinnerImage from '../../assets/images/meals/dinner.jpg';
 
-import ItemBlock from '../../Components/ItemBlock';
+import ItemBlock from '../../components/ItemBlock';
 
-import './styles.css';
+import styles from './styles.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { addItem, removeItem } from '../../Components/ShoppingCart/CartSlice';
+import { addItem, removeItem } from '../../components/ShoppingCart/CartSlice';
 
 const PlannerPage = () => {
     const cartItems = useSelector(state => state.cart);
@@ -71,28 +71,28 @@ const PlannerPage = () => {
     };
 
     return (
-        <div className="planner-page">
-            <div className="venues">
+        <div className={styles.page}>
+            <div className={styles.selection}>
                 <h1>Venue Room Selection</h1>
-                <div className="planner-list">
+                <div className={styles.list}>
                     {venues.map(venue => (
                         <ItemBlock key={venue.id} item={venue} category="venues" />
                     ))}
                 </div>
-                <h2 className='total'>Total: ${venuesTotalAmount}</h2>
+                <h2 className={styles.total}>Total: ${venuesTotalAmount}</h2>
             </div>
 
-            <div className="addons">
+            <div className={styles.selection}>
                 <h1>Add-ons Selection</h1>
-                <div className="planner-list">
+                <div className={styles.list}>
                     {addons.map(addon => (
                         <ItemBlock key={addon.id} item={addon} category="addons" />
                     ))}
                 </div>
-                <h2 className='total'>Total: ${addonsTotalAmount}</h2>
+                <h2 className={styles.total}>Total: ${addonsTotalAmount}</h2>
             </div>
 
-            <div className="meals">
+            <div className={styles.selection}>
                 <h1>Meals Selection</h1>
                 <p>Number of people:
                     <input
@@ -102,7 +102,7 @@ const PlannerPage = () => {
                         min="0"
                     />
                 </p>
-                <div className="planner-list">
+                <div className={styles.list}>
                     {meals.map(meal => (
                         <ItemBlock
                             key={meal.id}
@@ -112,7 +112,7 @@ const PlannerPage = () => {
                         />
                     ))}
                 </div>
-                <h2 className='total'>Total: ${mealsTotalAmount}</h2>
+                <h2 className={styles.total}>Total: ${mealsTotalAmount}</h2>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import React from "react";
-import LandingPage from "./Pages/Landing";
-import PlannerPage from "./Pages/Planner";
+import LandingPage from "./pages/Landing";
+import PlannerPage from "./pages/Planner";
 
 const routesConfig = [
     { path: '/home', title: 'Home', component: <LandingPage />, navbar: true },
