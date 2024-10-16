@@ -1,6 +1,7 @@
 .planner-page {
     padding: 10px;
     text-align: center;
+    background: rgb(58, 2, 39);
 }
 
 .planner-list {
@@ -11,7 +12,7 @@
 }
 
 .planner-page .total {
-    background-color: firebrick;
+    background-color: rgb(255, 0, 55);
     border-radius: 8px;
     padding: 8px 16px;
     display: inline-block;
@@ -19,7 +20,7 @@
 }
 
 .planner-page h1 {
-    background-color: firebrick;
+    background-color: rgb(255, 0, 55);
 }
 
 .addons, .meals {

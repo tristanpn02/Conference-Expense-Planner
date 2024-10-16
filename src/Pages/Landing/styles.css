@@ -25,3 +25,13 @@
   .landing-page p {
     font-size: 26px;
   }
+
+  .landing-page .get-started-btn {
+    background-color: rgb(199, 0, 66);
+    color: white;
+    font-weight: bold;
+  }
+
+  .landing-page .get-started-btn:hover {
+    color: #ffd54f;
+  }
