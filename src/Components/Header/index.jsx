@@ -19,9 +19,8 @@ const Header = ({ routes }) => {
             <nav className={styles.navBar}>
                 <ul>
                     {routes.map((route, index) => ( !route.navbar ? '' :
-                        <li>
+                        <li key={index}>
                             <NavLink
-                                key={index}
                                 className={({ isActive }) => (isActive ? 'active' : '')}
                                 to={route.path}>
                                 {route.title}
