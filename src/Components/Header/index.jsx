@@ -1,8 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 
 import styles from './styles.module.css'
+import ShoppingCart from "../ShoppingCart";
+import { useState } from "react";
 
 const Header = ({ routes }) => {
+    const [isCartVisible, setIsCartVisible] = useState(false);
+
+    const toggleCart = () => {
+        setIsCartVisible(!isCartVisible);
+    };
+
     return (
         <div className={styles.header}>
             <Link to="/">
@@ -20,8 +28,10 @@ const Header = ({ routes }) => {
                             </NavLink>
                         </li>
                     ))}
+                    <button onClick={toggleCart}>Show Details</button>
                 </ul>
             </nav>
+           {isCartVisible && <ShoppingCart onClose={toggleCart} />}
         </div>
     );
 }
