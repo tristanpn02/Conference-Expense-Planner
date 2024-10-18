@@ -1,22 +1,22 @@
 import { getCategorizedImages } from '../../utils/imageLoader';
 
-const categorizedImages = getCategorizedImages();
 
 import ItemBlock from '../../components/ItemBlock';
 
 import styles from './styles.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { addItem, removeItem } from '../../components/ShoppingCart/CartSlice';
+import { addItem, removeItem, setPeopleQuantity } from '../../components/ShoppingCart/CartSlice';
 
 const PlannerPage = () => {
-    const cartItems = useSelector(state => state.cart);
+    const cart = useSelector(state => state.cart);
     const dispatch = useDispatch();
 
-    const venuesTotalAmount = cartItems.venues.reduce((total, item) => total + item.price * item.quantity, 0);
-    const addonsTotalAmount = cartItems.addons.reduce((total, item) => total + item.price * item.quantity, 0);
-
-    const [mealsPeopleAmount, setMealsPeopleAmount] = useState(0);
+    const venuesTotalAmount = cart.venues.reduce((total, item) => total + item.price * item.quantity, 0);
+    const addonsTotalAmount = cart.addons.reduce((total, item) => total + item.price * item.quantity, 0);
+    const mealsTotalAmount = cart.meals.reduce((total, meal) => total + meal.price * cart.people, 0);
+    
+    const categorizedImages = getCategorizedImages();
 
     const venues = [
         { id: 1, name: 'Conference Room', capacity: 15, price: 1500, img: categorizedImages.venues['conference.jpg'] },
@@ -41,12 +41,8 @@ const PlannerPage = () => {
         { id: 4, name: 'Dinner', price: 70, img: categorizedImages.meals['dinner.jpg'] },
     ];
 
-    const mealsTotalAmount = cartItems.meals.reduce((total, meal) => {
-        return total + meal.price * mealsPeopleAmount;
-    }, 0);
-
-    const handleMealSelection = (mealId) => {
-        const isMealSelected = cartItems.meals.find(meal => meal.id === mealId);
+    const handleMealToggle = (mealId) => {
+        const isMealSelected = cart.meals.find(meal => meal.id === mealId);
         if (isMealSelected) {
             dispatch(removeItem({ category: 'meals', id: mealId }));
         } else {
@@ -56,6 +52,11 @@ const PlannerPage = () => {
             }
         }
     };
+
+    const handlePeopleChange = (e) => {
+        const peopleCount = parseInt(e.target.value, 10) || 0;
+        dispatch(setPeopleQuantity(peopleCount));
+    }
 
     return (
         <div className={styles.page}>
@@ -84,8 +85,8 @@ const PlannerPage = () => {
                 <h2>Number of people: 
                     <input
                         type="number"
-                        value={mealsPeopleAmount}
-                        onChange={(e) => setMealsPeopleAmount(Number(e.target.value))}
+                        value={cart.people}
+                        onChange={handlePeopleChange}
                         min="0"
                         className={styles.numberInput}
                     />
@@ -96,7 +97,7 @@ const PlannerPage = () => {
                             key={meal.id}
                             item={meal}
                             category="meals"
-                            onMealSelect={handleMealSelection}
+                            onMealSelect={handleMealToggle}
                         />
                     ))}
                 </div>

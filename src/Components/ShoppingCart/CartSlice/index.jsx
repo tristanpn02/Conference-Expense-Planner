@@ -4,6 +4,7 @@ const initialState = {
     venues: [],
     addons: [],
     meals: [],
+    people: 0,
 };
 
 // Helper to find an item by ID
@@ -52,6 +53,10 @@ const CartSlice = createSlice({
                     state[category] = state[category].filter(i => i.id !== id);
                 }
             }
+        },
+
+        setPeopleQuantity(state, action) {
+            state.people = action.payload;
         }
     }
 });
@@ -62,6 +67,7 @@ export const {
     clearItems,
     increaseItemQuantity,
     decreaseItemQuantity,
+    setPeopleQuantity
 } = CartSlice.actions;
 
 export default CartSlice.reducer;
